@@ -2,9 +2,10 @@ const express = require('express'); //import edilmesi...
 require('dotenv').config();
 const app = express();
 const mongoose = require('mongoose');
-const Post = require('./models/post');
 const pageRouter = require('./router/pageRouter');
-mongoose.connect('mongodb://127.0.0.1/cleanblog-test-db');
+mongoose.connect('mongodb://127.0.0.1/cleanblog-test-db')
+.then(() => console.log('MongoDB’ye bağlandı!'))
+.catch(err => console.log('MongoDB bağlantı hatası: ', err));
 
 
 // middleware oluşturduk ve public dosyasını çagırdık...
